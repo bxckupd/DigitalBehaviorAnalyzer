@@ -6,7 +6,6 @@ from src.analysis import (
     correlation_analysis,
     toxic_days
 )
-
 DATA_PATH = "data/daily_usage.csv"
 
 def main():
@@ -25,14 +24,24 @@ def main():
         correlation_analysis(df)
     elif args.command == "toxic":
         toxic_days(df)
+    elif args.command == "full":
+        print(
+            "ПОЛНЫЙ АНАЛИЗ ДАННЫХ\n"
+        )
+        basic_stats(df)
+        weekend_analysis(df)
+        correlation_analysis(df)
+        toxic_days(df)
     else:
         print(
             "Доступные команды:\n"
             "stats\n"
             "weekend\n"
             "correlation\n"
-            "toxic"
+            "toxic\n"
+            "full"
         )
 
 if __name__ == "__main__":
+    main()if __name__ == "__main__":
     main()
